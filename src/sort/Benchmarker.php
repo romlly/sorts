@@ -8,7 +8,8 @@ class Benchmarker
     private static $availableSorts = [
         'PhpSortFunction', 
         'Selection', 
-        'SelectionEnhanced'
+        'SelectionEnhanced',
+        'Insertion'
     ];
 
     public function run()
