@@ -6,6 +6,7 @@ class Benchmarker
     const INITIAL_NUMBER_OF_ELEMENTS_TO_SORT = 10;
 
     private static $availableSorts = [
+        'Quick',
         'PhpSortFunction', 
         'Selection', 
         'SelectionEnhanced',
