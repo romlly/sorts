@@ -1,0 +1,32 @@
+{
+    "db": {
+        "host": "ocalhost",
+        "user": "user",
+        "password": "pass",
+        "name": "db"
+    },
+
+    "benchmark": {
+        "name": "First benchmark",
+
+        "algorithms": [
+            "PhpSortFunction",
+            "Selection",
+            "SelectionEnhanced",
+            "Insertion",
+            "Bubble",
+            "Comb",
+            "Merge",
+            "Quick"
+        ],
+
+        "dataToSort": {
+            "type": "array",
+            "elements": {
+                "from": 10,
+                "to": 1000,
+                "step": 10
+            }
+        }
+    }
+}

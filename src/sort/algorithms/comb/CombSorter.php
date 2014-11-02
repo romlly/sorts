@@ -1,5 +1,5 @@
 <?php
-namespace sort\comb;
+namespace sort\algorithms\comb;
 
 use sort\Sorter;
 

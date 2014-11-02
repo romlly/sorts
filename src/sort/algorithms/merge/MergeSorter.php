@@ -1,5 +1,5 @@
 <?php
-namespace sort\merge;
+namespace sort\algorithms\merge;
 
 use sort\Sorter;
 

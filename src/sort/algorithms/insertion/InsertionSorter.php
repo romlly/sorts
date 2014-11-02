@@ -1,5 +1,5 @@
 <?php
-namespace sort\insertion;
+namespace sort\algorithms\insertion;
 
 use sort\Sorter;
 

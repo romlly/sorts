@@ -1,26 +1,18 @@
 <?php
 namespace sort;
 
+use sort\algorithms\SorterFactory;
+
 class Benchmarker
 {
-    const INITIAL_NUMBER_OF_ELEMENTS_TO_SORT = 10;
-
-    private static $availableSorts = [
-        'PhpSortFunction',
-        'Comb',
-        'Bubble',
-        'Merge',
-        'Quick',
-        'Selection', 
-        'SelectionEnhanced',
-        'Insertion',
-    ];
-
     public function run()
     {
-        foreach (self::$availableSorts as $sort) {
-            for($i = 0; $i <= 3; $i++) {
-                $this->benchmarkSort(SorterFactory::getSorter($sort), self::INITIAL_NUMBER_OF_ELEMENTS_TO_SORT * pow(10,$i));
+        $conf = Tools::getConf();
+        $elementsConf = $conf['benchmark']['dataToSort']['elements'];
+
+        foreach ($conf['benchmark']['algorithms'] as $sort) {
+            for($i = $elementsConf['from']; $i <= $elementsConf['to']; $i += $elementsConf['step']) {
+                $this->benchmarkSort(SorterFactory::getSorter($sort), $i);
             }
         }
     }

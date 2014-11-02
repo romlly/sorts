@@ -1,5 +1,5 @@
 <?php
-namespace sort;
+namespace sort\algorithms;
 
 class SorterFactory
 {
@@ -8,7 +8,7 @@ class SorterFactory
         $sorterClassPath = __DIR__ . '/' . lcfirst($sorterName) . '/' . $sorterName . 'Sorter.php';
 
         if (file_exists($sorterClassPath)) {
-            $className = '\\sort\\' . lcfirst($sorterName) . '\\' . $sorterName . 'Sorter';
+            $className = '\\sort\\algorithms\\' . lcfirst($sorterName) . '\\' . $sorterName . 'Sorter';
             return new $className();
         }
 

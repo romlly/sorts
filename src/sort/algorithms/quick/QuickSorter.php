@@ -1,5 +1,5 @@
 <?php
-namespace sort\quick;
+namespace sort\algorithms\quick;
 
 use sort\Sorter;
 

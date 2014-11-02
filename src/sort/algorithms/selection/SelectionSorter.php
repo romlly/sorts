@@ -1,5 +1,5 @@
 <?php
-namespace sort\selection;
+namespace sort\algorithms\selection;
 
 use sort\Sorter;
 

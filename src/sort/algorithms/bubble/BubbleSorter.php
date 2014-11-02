@@ -1,5 +1,5 @@
 <?php
-namespace sort\bubble;
+namespace sort\algorithms\bubble;
 
 use sort\Sorter;
 

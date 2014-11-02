@@ -1,5 +1,5 @@
 <?php
-namespace sort\phpSortFunction;
+namespace sort\algorithms\phpSortFunction;
 
 use sort\Sorter;
 
