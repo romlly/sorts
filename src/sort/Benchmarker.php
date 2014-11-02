@@ -1,6 +1,7 @@
 <?php
 namespace sort;
 
+use PDO;
 use sort\algorithms\SorterFactory;
 
 class Benchmarker
@@ -8,11 +9,14 @@ class Benchmarker
     public function run()
     {
         $conf = Tools::getConf();
+        $connection = new PDO("mysql:host={$conf['db']['host']};dbname={$conf['db']['name']}", $conf['db']['user'], $conf['db']['password']);
+
         $elementsConf = $conf['benchmark']['dataToSort']['elements'];
 
         foreach ($conf['benchmark']['algorithms'] as $sort) {
             for($i = $elementsConf['from']; $i <= $elementsConf['to']; $i += $elementsConf['step']) {
-                $this->benchmarkSort(SorterFactory::getSorter($sort), $i);
+                $microtime = $this->benchmarkSort(SorterFactory::getSorter($sort), $i);
+                $connection->exec("INSERT INTO benchmark (benchmark_name, algorithm, number_of_elements, microtime) VALUES ('{$conf['benchmark']['name']}', '$sort', '$i', '$microtime')");
             }
         }
     }
@@ -27,5 +31,7 @@ class Benchmarker
         $sortStatus = $sorter->verifySort($sortedArray) ? 'SUCCESS' : 'FAILURE';
 
         echo "[$className] [$numberOfElementsToSort elements] [$sortStatus] ${timeSpent}s\n";
+
+        return $timeSpent;
     }
 }
