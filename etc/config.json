@@ -1,8 +1,6 @@
 {
-    "env": "test",
-
     "db": {
-        "host": "ocalhost",
+        "host": "localhost",
         "user": "user",
         "password": "pass",
         "name": "db"
