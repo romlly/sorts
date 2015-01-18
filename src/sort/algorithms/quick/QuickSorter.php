@@ -1,7 +1,7 @@
 <?php
 namespace sort\algorithms\quick;
 
-use sort\Sorter;
+use sort\algorithms\Sorter;
 
 class QuickSorter extends Sorter
 {

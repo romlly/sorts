@@ -1,7 +1,7 @@
 <?php
 namespace sort\algorithms\selectionEnhanced;
 
-use sort\Sorter;
+use sort\algorithms\Sorter;
 
 class SelectionEnhancedSorter extends Sorter
 {

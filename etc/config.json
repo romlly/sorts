@@ -1,4 +1,6 @@
 {
+    "env": "test",
+
     "db": {
         "host": "ocalhost",
         "user": "user",
@@ -8,6 +10,7 @@
 
     "benchmark": {
         "name": "First benchmark",
+        "storeResults": false,
 
         "algorithms": [
             "PhpSortFunction",

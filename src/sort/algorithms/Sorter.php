@@ -1,5 +1,5 @@
 <?php
-namespace sort;
+namespace sort\algorithms;
 
 abstract class Sorter
 {

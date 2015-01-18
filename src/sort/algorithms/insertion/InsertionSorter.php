@@ -1,7 +1,7 @@
 <?php
 namespace sort\algorithms\insertion;
 
-use sort\Sorter;
+use sort\algorithms\Sorter;
 
 class InsertionSorter extends Sorter
 {

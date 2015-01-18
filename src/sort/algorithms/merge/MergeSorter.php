@@ -1,7 +1,7 @@
 <?php
 namespace sort\algorithms\merge;
 
-use sort\Sorter;
+use sort\algorithms\Sorter;
 
 class MergeSorter extends Sorter
 {

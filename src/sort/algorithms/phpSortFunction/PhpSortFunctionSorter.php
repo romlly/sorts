@@ -1,7 +1,7 @@
 <?php
 namespace sort\algorithms\phpSortFunction;
 
-use sort\Sorter;
+use sort\algorithms\Sorter;
 
 class PhpSortFunctionSorter extends Sorter
 {

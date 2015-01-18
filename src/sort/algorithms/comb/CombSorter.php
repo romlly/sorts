@@ -1,7 +1,7 @@
 <?php
 namespace sort\algorithms\comb;
 
-use sort\Sorter;
+use sort\algorithms\Sorter;
 
 class CombSorter extends Sorter
 {

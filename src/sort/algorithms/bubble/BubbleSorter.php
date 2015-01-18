@@ -1,7 +1,7 @@
 <?php
 namespace sort\algorithms\bubble;
 
-use sort\Sorter;
+use sort\algorithms\Sorter;
 
 class BubbleSorter extends Sorter
 {
