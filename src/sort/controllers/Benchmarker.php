@@ -1,9 +1,10 @@
 <?php
-namespace sort;
+namespace sort\controllers;
 
-use PDO;
 use sort\algorithms\Sorter;
 use sort\algorithms\SorterFactory;
+use sort\Tools;
+use sorts\models\BenchmarkResultsWriter;
 
 /**
  * Class Benchmarker
@@ -16,16 +17,14 @@ class Benchmarker
 {
     /**
      * Well, it runs the bench.
-     *
-     * @FIXME The 'storeResult' thing has nothing to do here
      */
     public function run()
     {
         $conf = Tools::getConf();
 
-        $dbConnection = null;
+        $writer = null;
         if ($conf['benchmark']['storeResults']) {
-            $dbConnection = new PDO("mysql:host={$conf['db']['host']};dbname={$conf['db']['name']}", $conf['db']['user'], $conf['db']['password']);
+            $writer = new BenchmarkResultsWriter($conf);
         }
 
         $elementsConf = $conf['benchmark']['dataToSort']['elements'];
@@ -34,8 +33,8 @@ class Benchmarker
             for ($i = $elementsConf['from']; $i <= $elementsConf['to']; $i += $elementsConf['step']) {
                 $microtime = $this->benchmarkSort(SorterFactory::getSorter($sort), $i);
 
-                if ($dbConnection !== null) {
-                    $dbConnection->exec("INSERT INTO benchmark (benchmark_name, algorithm, number_of_elements, microtime) VALUES ('{$conf['benchmark']['name']}', '$sort', '$i', '$microtime')");
+                if ($writer !== null) {
+                    $writer->write($sort, $i, $microtime);
                 }
             }
         }
