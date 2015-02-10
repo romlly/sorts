@@ -1,6 +1,7 @@
 <?php
 namespace sort\controllers;
 
+use sort\models\BenchmarkResultsRetriever;
 use Twig_Autoloader;
 use Twig_Environment;
 use Twig_Loader_Filesystem;
@@ -14,10 +15,19 @@ class BenchmarkViewer
 {
     /**
      * Show benchmark results page.
+     *
+     * @param string $benchmarkToLoad
      */
-    public function showBenchmark()
+    public function showBenchmark($benchmarkToLoad = null)
     {
-        $vars = array();
+        $retriever = new BenchmarkResultsRetriever();
+        $vars = array(
+            'benchmark_list' => $retriever->retrieveBenchmarksList()
+        );
+
+        if ($benchmarkToLoad !== null) {
+            $vars['benchmark'] = $retriever->retrieveBenchmarkResults($benchmarkToLoad);
+        }
 
         $this->render($vars);
     }

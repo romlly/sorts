@@ -1,5 +1,5 @@
 <?php
-namespace sorts\models;
+namespace sort\models;
 use sort\Tools;
 
 /**
@@ -38,7 +38,18 @@ class BenchmarkResultsRetriever
      */
     public function retrieveBenchmarkResults($benchmarkName)
     {
-        $queryResult = $this->dbConnection->prepare('SELECT * FROM benchmark WHERE benchmark_name = ?', array($benchmarkName));
-        return $queryResult->fetchAll();
+        $query = $this->dbConnection->prepare('SELECT * FROM benchmark WHERE benchmark_name = :name');
+        $query->execute(array(':name' => $benchmarkName));
+        $benchmarkResults =  $query->fetchAll();
+
+        $indexedBenchmarks = array();
+        foreach ($benchmarkResults as $benchmarkResult) {
+            $indexedBenchmarks[$benchmarkResult['algorithm']][] = array(
+                'number_of_elements' => $benchmarkResult['number_of_elements'],
+                'microtime' => $benchmarkResult['microtime']
+            );
+        }
+
+        return $indexedBenchmarks;
     }
 } 
