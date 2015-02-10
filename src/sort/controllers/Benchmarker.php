@@ -4,7 +4,7 @@ namespace sort\controllers;
 use sort\algorithms\Sorter;
 use sort\algorithms\SorterFactory;
 use sort\Tools;
-use sorts\models\BenchmarkResultsWriter;
+use sort\models\BenchmarkResultsWriter;
 
 /**
  * Class Benchmarker

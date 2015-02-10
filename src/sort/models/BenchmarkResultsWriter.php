@@ -1,5 +1,5 @@
 <?php
-namespace sorts\models;
+namespace sort\models;
 
 /**
  * Class BenchmarkResultsWriter
