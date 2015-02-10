@@ -8,7 +8,7 @@ $ composer install
 ## Lancement du benchmark
 
 ```
-$ php main.php
+$ php cli.php
 ```
 
 ## Configuration
