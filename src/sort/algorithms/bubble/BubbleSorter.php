@@ -3,8 +3,17 @@ namespace sort\algorithms\bubble;
 
 use sort\algorithms\Sorter;
 
+/**
+ * Class BubbleSorter
+ * @package sort\algorithms\bubble
+ * Bubble sort.
+ * See details : http://en.wikipedia.org/wiki/Bubble_sort
+ */
 class BubbleSorter extends Sorter
 {
+    /**
+     * @inheritdoc
+     */
     public function sortArray(array $arrayToSort)
     {
         $length = count($arrayToSort);

@@ -3,6 +3,12 @@ namespace sort\algorithms\selection;
 
 use sort\algorithms\Sorter;
 
+/**
+ * Class SelectionSorter
+ * @package sort\algorithms\selection
+ * Selection sort (1st implementation).
+ * See details : http://en.wikipedia.org/wiki/Selection_sort
+ */
 class SelectionSorter extends Sorter
 {
     public function sortArray(array $arrayToSort)

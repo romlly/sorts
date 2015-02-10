@@ -3,6 +3,12 @@ namespace sort\algorithms\comb;
 
 use sort\algorithms\Sorter;
 
+/**
+ * Class CombSorter
+ * @package sort\algorithms\comb
+ * Comb sort.
+ * See details : http://en.wikipedia.org/wiki/Comb_sort
+ */
 class CombSorter extends Sorter
 {
     const SHRINK = 1.3;

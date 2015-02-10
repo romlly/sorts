@@ -3,6 +3,12 @@ namespace sort\algorithms\selectionEnhanced;
 
 use sort\algorithms\Sorter;
 
+/**
+ * Class SelectionEnhancedSorter
+ * @package sort\algorithms\selectionEnhanced
+ * Selection sort (2nd implementation).
+ * See details : http://en.wikipedia.org/wiki/Selection_sort
+ */
 class SelectionEnhancedSorter extends Sorter
 {
     public function sortArray(array $arrayToSort)

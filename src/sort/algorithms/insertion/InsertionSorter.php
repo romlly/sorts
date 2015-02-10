@@ -3,6 +3,12 @@ namespace sort\algorithms\insertion;
 
 use sort\algorithms\Sorter;
 
+/**
+ * Class InsertionSorter
+ * @package sort\algorithms\insertion
+ * Insertion sort.
+ * See details : http://en.wikipedia.org/wiki/Insertion_sort
+ */
 class InsertionSorter extends Sorter
 {
     public function sortArray(array $arrayToSort)

@@ -3,6 +3,12 @@ namespace sort\algorithms\merge;
 
 use sort\algorithms\Sorter;
 
+/**
+ * Class MergeSorter
+ * @package sort\algorithms\merge
+ * Merge sort.
+ * See details : http://en.wikipedia.org/wiki/Merge_sort
+ */
 class MergeSorter extends Sorter
 {
     public function sortArray(array $arrayToSort)

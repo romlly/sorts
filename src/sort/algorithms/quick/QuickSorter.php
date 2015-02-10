@@ -3,6 +3,12 @@ namespace sort\algorithms\quick;
 
 use sort\algorithms\Sorter;
 
+/**
+ * Class QuickSorter
+ * @package sort\algorithms\quick
+ * Quick sort.
+ * See details : http://en.wikipedia.org/wiki/Quicksort
+ */
 class QuickSorter extends Sorter
 {
     public function sortArray(array $arrayToSort)
