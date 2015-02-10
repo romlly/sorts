@@ -3,5 +3,8 @@
         "psr-4": {
             "sort\\": "src/sort/"
         }
+    },
+    "require": {
+        "twig/twig": "~1.0"
     }
 }

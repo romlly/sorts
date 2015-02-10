@@ -1,3 +1,6 @@
 /vendor
 .idea
 composer.phar
+composer.lock
+/var/cache/*
+!/var/cache/.gitkeep

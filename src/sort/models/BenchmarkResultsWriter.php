@@ -32,6 +32,6 @@ class BenchmarkResultsWriter
      */
     public function write($sortName, $numberOfElements, $microtime)
     {
-        $this->dbConnection->exec("INSERT INTO benchmark (benchmark_name, algorithm, number_of_elements, microtime) VALUES ('{$this->conf['benchmark']['name']}', '$sortName', '$numberOfElements', '$microtime')");
+        $this->dbConnection->exec('INSERT INTO benchmark (benchmark_name, algorithm, number_of_elements, microtime) VALUES (?, ?, ?, ?)', array($this->conf['benchmark']['name'], $sortName, $numberOfElements, $microtime));
     }
 } 
