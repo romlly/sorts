@@ -3,5 +3,13 @@
         "psr-4": {
             "sort\\": "src/sort/"
         }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "sort\\": "tests/sort/"
+        }
+    },
+    "require-dev": {
+        "phpunit/phpunit": "5.3.*"
     }
 }
