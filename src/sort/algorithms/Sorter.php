@@ -9,31 +9,29 @@ namespace sort\algorithms;
  */
 abstract class Sorter
 {
-    /**
-     * Do sort an array using current algorithm.
-     *
-     * @param array $arrayToSort
-     * @return array
-     */
-    public abstract function sortArray(array $arrayToSort);
+    protected $arrayToSort;
 
-    /**
-     * Verify array state after a sort process.
-     *
-     * @param array $sortedArray
-     * @return bool whether or not the array is well sorted
-     */
-    public function verifySort(array $sortedArray)
+    protected $sortIsFinished = false;
+
+    public function __construct(array $arrayToSort)
     {
-        $lastArrayValue = -1;
-        foreach ($sortedArray as $arrayValue) {
-            if ($arrayValue < $lastArrayValue) {
-                return false;
-            }
+        $this->arrayToSort = $arrayToSort;
+    }
 
-            $lastArrayValue = $arrayValue;
+    public function nextStep()
+    {
+        if ($this->sortIsFinished) {
+            throw new \Exception('Sort is finished !');
         }
+    }
 
-        return true;
+    public function sortInFinished()
+    {
+        return $this->sortIsFinished;
+    }
+
+    public function getArray()
+    {
+        return $this->arrayToSort;
     }
 }

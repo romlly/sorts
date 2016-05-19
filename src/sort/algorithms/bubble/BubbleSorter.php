@@ -11,25 +11,39 @@ use sort\algorithms\Sorter;
  */
 class BubbleSorter extends Sorter
 {
-    /**
-     * @inheritdoc
-     */
-    public function sortArray(array $arrayToSort)
-    {
-        $length = count($arrayToSort);
+    private $arrayLength;
 
-        do {
-            $arrayHasChanged = false;
-            for ($i = 0; $i < $length - 1; $i++) {
-                if ($arrayToSort[$i] > $arrayToSort[$i+1]) {
-                    $tmp = $arrayToSort[$i];
-                    $arrayToSort[$i] = $arrayToSort[$i+1];
-                    $arrayToSort[$i+1] = $tmp;
-                    $arrayHasChanged = true;
+    private $arrayHasChanged = false;
+
+    private $cursor = 0;
+
+    public function __construct(array $arrayToSort)
+    {
+        parent::__construct($arrayToSort);
+
+        $this->arrayLength = count($arrayToSort);
+    }
+
+    public function nextStep()
+    {
+        parent::nextStep();
+
+        if ($this->cursor < $this->arrayLength - 1) {
+            if ($this->arrayToSort[$this->cursor] > $this->arrayToSort[$this->cursor + 1]) {
+                $tmp = $this->arrayToSort[$this->cursor];
+                $this->arrayToSort[$this->cursor] = $this->arrayToSort[$this->cursor + 1];
+                $this->arrayToSort[$this->cursor + 1] = $tmp;
+                $this->arrayHasChanged = true;
+            }
+
+            if (++$this->cursor === $this->arrayLength - 1) {
+                if ($this->arrayHasChanged) {
+                    $this->cursor = 0;
+                    $this->arrayHasChanged = false;
+                } else {
+                    $this->sortIsFinished = true;
                 }
             }
-        } while ($arrayHasChanged);
-
-        return $arrayToSort;
+        }
     }
 }
